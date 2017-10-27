@@ -1,0 +1,18 @@
+*.class
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Java VM  crash logs
+hs_err_pid*
+
+# build files
+**/target
+target
