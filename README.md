@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.alphabot.secbot</groupId>
     <artifactId>secbot-client-java</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.alphabot.secbot:secbot-client-java:0.0.1"
+compile "com.alphabot.secbot:secbot-client-java:0.0.2"
 ```
 
 ### Others
@@ -52,7 +52,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/secbot-client-java-0.0.1.jar
+* target/secbot-client-java-0.0.2.jar
 * target/lib/*.jar
 
 
@@ -65,22 +65,22 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.alphabot.secbot.client.v0.*;
 import com.alphabot.secbot.client.v0.auth.*;
 import com.alphabot.secbot.client.v0.codegen.model.*;
-import com.alphabot.secbot.client.v0.codegen.ApiApi;
+import com.alphabot.secbot.client.v0.codegen.SecBotApi;
 
 import java.io.File;
 import java.util.*;
 
-public class ApiApiExample {
+public class SecBotApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = new ApiClient().setBasePath("https://PATH_TO_YOUR_SECBOT_INSTACE");
+        ApiClient defaultClient = new ApiClient().setBasePath("https://PATH_TO_YOUR_SECBOT_INSTANCE");
         
         // Configure API key authorization: Bearer
         ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
         Bearer.setApiKey("YOUR API KEY");
         Bearer.setApiKeyPrefix("Bearer");
 
-        ApiApi apiInstance = new ApiApi();
+        SecBotApi apiInstance = new SecBotApi();
         String projectId = "projectId_example"; // String | 
         String environmentId = "environmentId_example"; // String | 
         String testRunId = "testRunId_example"; // String | 
@@ -88,7 +88,7 @@ public class ApiApiExample {
             TestRunApiResponse result = apiInstance.getTestRunById(projectId, environmentId, testRunId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApi#getTestRunById");
+            System.err.println("Exception when calling SecBotApi#getTestRunById");
             e.printStackTrace();
         }
     }
@@ -102,9 +102,9 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApiApi* | [**getTestRunById**](docs/ApiApi.md#getTestRunById) | **GET** /Api/v0/Project/{projectId}/Env/{environmentId}/Run/{testRunId} | 
-*ApiApi* | [**startTestRun**](docs/ApiApi.md#startTestRun) | **POST** /Api/v0/Project/{projectId}/Env/{environmentId}/start | 
-
+[**getLastTestRun**](SecBotApi.md#getLastTestRun) | **GET** /Api/v0/Project/{projectId}/Env/{environmentId}/LastRun | 
+[**getTestRunById**](SecBotApi.md#getTestRunById) | **GET** /Api/v0/Project/{projectId}/Env/{environmentId}/Run/{testRunId} | 
+[**startTestRun**](SecBotApi.md#startTestRun) | **POST** /Api/v0/Project/{projectId}/Env/{environmentId}/start | 
 
 ## Documentation for Models
 

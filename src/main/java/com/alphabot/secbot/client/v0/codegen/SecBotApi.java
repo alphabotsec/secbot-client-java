@@ -25,16 +25,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 
-@Component("com.alphabot.secbot.client.v0.codegen.ApiApi")
-public class ApiApi {
+@Component("com.alphabot.secbot.client.v0.codegen.SecBotApi")
+public class SecBotApi {
     private ApiClient apiClient;
 
-    public ApiApi() {
+    public SecBotApi() {
         this(new ApiClient());
     }
 
     @Autowired
-    public ApiApi(ApiClient apiClient) {
+    public SecBotApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -46,6 +46,50 @@ public class ApiApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * 
+     * 
+     * <p><b>200</b> - Success
+     * @param projectId The projectId parameter
+     * @param environmentId The environmentId parameter
+     * @return TestRunApiResponse
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public TestRunApiResponse getLastTestRun(String projectId, String environmentId) throws RestClientException {
+        Object postBody = null;
+        
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'projectId' when calling getLastTestRun");
+        }
+        
+        // verify the required parameter 'environmentId' is set
+        if (environmentId == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'environmentId' when calling getLastTestRun");
+        }
+        
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("projectId", projectId);
+        uriVariables.put("environmentId", environmentId);
+        String path = UriComponentsBuilder.fromPath("/Api/v0/Project/{projectId}/Env/{environmentId}/LastRun").buildAndExpand(uriVariables).toUriString();
+        
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] accepts = { 
+            "application/json"
+        };
+        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+        final String[] contentTypes = { };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] { "Bearer" };
+
+        ParameterizedTypeReference<TestRunApiResponse> returnType = new ParameterizedTypeReference<TestRunApiResponse>() {};
+        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    }
     /**
      * 
      * 

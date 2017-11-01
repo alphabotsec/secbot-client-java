@@ -5,7 +5,7 @@
   <artifactId>secbot-client-java</artifactId>
   <packaging>jar</packaging>
   <name>secbot-client-java</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <url>https://github.com/alphabotsec/secbot-client-java</url>
   <description>Java Client for SecBot - Continuous web security</description>
   <scm>
