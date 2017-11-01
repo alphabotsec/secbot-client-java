@@ -80,14 +80,14 @@ public class SecBotApiExample {
         Bearer.setApiKey("YOUR API KEY");
         Bearer.setApiKeyPrefix("Bearer");
 
-        SecBotApi apiInstance = new SecBotApi();
+        SecBotApi apiInstance = new SecBotApi(defaultClient);
         String projectId = "projectId_example"; // String | 
         String environmentId = "environmentId_example"; // String | 
         String testRunId = "testRunId_example"; // String | 
         try {
             TestRunApiResponse result = apiInstance.getTestRunById(projectId, environmentId, testRunId);
             System.out.println(result);
-        } catch (ApiException e) {
+        } catch (Exception e) {
             System.err.println("Exception when calling SecBotApi#getTestRunById");
             e.printStackTrace();
         }
@@ -102,9 +102,9 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[**getLastTestRun**](SecBotApi.md#getLastTestRun) | **GET** /Api/v0/Project/{projectId}/Env/{environmentId}/LastRun | 
-[**getTestRunById**](SecBotApi.md#getTestRunById) | **GET** /Api/v0/Project/{projectId}/Env/{environmentId}/Run/{testRunId} | 
-[**startTestRun**](SecBotApi.md#startTestRun) | **POST** /Api/v0/Project/{projectId}/Env/{environmentId}/start | 
+[**getLastTestRun**](SecBotApi.md#getLastTestRun) | **GET** | /Api/v0/Project/{projectId}/Env/{environmentId}/LastRun | 
+[**getTestRunById**](SecBotApi.md#getTestRunById) | **GET** | /Api/v0/Project/{projectId}/Env/{environmentId}/Run/{testRunId} | 
+[**startTestRun**](SecBotApi.md#startTestRun) | **POST** | /Api/v0/Project/{projectId}/Env/{environmentId}/start | 
 
 ## Documentation for Models
 
